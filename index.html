@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Військові професії</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div>
+    <h1>Військові професії</h1>
+    <p>Служба. Вибір. Майбутнє.</p>
+    <a href="#form" class="btn">Залишити заявку</a>
+  </div>
+</header>
+
+<section class="section fade">
+  <h2>Напрямки служби</h2>
+  <div class="cards">
+    <div class="card fade">
+      <img src="image/infantry.jpg" alt="Танкові війська">
+      <h3>Танкові війська</h3>
+      <p>Захист територій, бойові місії, мобільні операції.</p>
+    </div>
+    <div class="card fade">
+      <img src="image/artillery.jpg" alt="Артилерія">
+      <h3>Артилерія</h3>
+      <p>Точні удари на великій дистанції. Технічна майстерність.</p>
+    </div>
+    <div class="card fade">
+      <img src="image/medic.jpg" alt="Медики">
+      <h3>Військова медицина</h3>
+      <p>Порятунок життя та підтримка особового складу.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade">
+  <h2>Переваги служби</h2>
+  <ul class="benefits">
+    <li>
+      <span class="benefit-icon">💰</span>
+      Стабільне забезпечення
+    </li>
+    <li>
+      <span class="benefit-icon">🎓</span>
+      Навчання та курси
+    </li>
+    <li>
+      <span class="benefit-icon">📈</span>
+      Кар’єрне зростання
+    </li>
+    <li>
+      <span class="benefit-icon">🛡</span>
+      Соціальні гарантії
+    </li>
+  </ul>
+</section>
+
+<section class="section stats-section fade">
+  <h2>Служба у цифрах</h2>
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-number" data-target="25">0</span>
+      <p>+ Напрямків підготовки</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="7000">0</span>
+      <p>+ Успішних випускників</p>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" data-target="100">0</span>
+      <p>% Соціальних гарантій</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade">
+  <h2>Поширені питання (FAQ)</h2>
+  <div class="faq-container">
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Які вимоги для вступу?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Основні вимоги: вік від 18 до 45 років, відсутність судимостей, придатність за станом здоров'я та відповідний рівень фізичної підготовки. Деталі залежать від обраної спеціальності.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Чи потрібен попередній військовий досвід?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Ні, не обов'язково. Ми проводимо повний курс базової військової підготовки для всіх нових рекрутів, а також фахове навчання за обраним напрямком.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Які соціальні гарантії я отримаю?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Ви отримуєте повне медичне страхування, щорічну оплачувану відпустку, можливість пільгового виходу на пенсію, забезпечення житлом або компенсацію за його оренду, а також пільги для членів вашої родини.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="form" class="section fade form-section">
+  <h2>Дізнатися більше</h2>
+  <p class="form-intro">Заповніть форму, щоб наш спеціаліст зв'язався з вами.</p>
+  
+  <form action="https://formspree.io/f/xqakjndk" method="POST" class="contact-form" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Ваше ім'я" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="phone" placeholder="Номер телефону" required>
+    
+    <label for="dob" class="form-label">Дата вашого народження:</label>
+    <input type="date" id="dob" name="birthdate" required>
+
+    <label for="file-upload" class="file-upload-label btn-secondary">
+      📎 Прикріпити резюме (PDF/DOC)
+    </label>
+    <span id="file-name" class="file-name-display"></span>
+    <input type="file" id="file-upload" name="resume" accept=".pdf,.doc,.docx,.rtf">
+
+    <button type="submit" class="btn">Надіслати</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Військові професії • Україна</p>
+</footer>
+
+<script>
+  // 1. Плавна анімація появи блоків
+  const faders = document.querySelectorAll('.fade');
+  const appearOptions = { threshold: 0.2 };
+  const appearOnScroll = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+
+  // 2. Показ назви обраного файлу
+  const fileInput = document.getElementById('file-upload');
+  const fileNameDisplay = document.getElementById('file-name');
+  if (fileInput) {
+    fileInput.addEventListener('change', function() {
+      fileNameDisplay.textContent = this.files.length > 0 ? 'Обраний файл: ' + this.files[0].name : '';
+    });
+  }
+
+  // 3. НОВИЙ СКРИПТ: Анімований лічильник
+  const counters = document.querySelectorAll('.stat-number');
+  const speed = 200; // Чим вище число, тим повільніше анімація
+
+  const animateCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const inc = target / speed;
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + inc);
+      setTimeout(() => animateCounter(counter), 10);
+    } else {
+      counter.innerText = target;
+    }
+  };
+
+  const statsSection = document.querySelector('.stats-section');
+  if (statsSection) {
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          counters.forEach(counter => animateCounter(counter));
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 }); // Спрацює, коли 50% блоку видно
+    
+    statsObserver.observe(statsSection);
+  }
+
+  // 4. НОВИЙ СКРИПТ: Акордеон (FAQ)
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      // Перевіряємо, чи активний цей елемент
+      const isActive = item.classList.contains('active');
+      
+      // (Опціонально) Закриваємо всі інші відкриті елементи
+      faqItems.forEach(otherItem => {
+        otherItem.classList.remove('active');
+      });
+      
+      // Якщо елемент не був активним, відкриваємо його
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
